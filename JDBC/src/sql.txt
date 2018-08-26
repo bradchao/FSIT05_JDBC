@@ -1,0 +1,17 @@
+SHOW DATABASES;
+
+CREATE DATABASE `mydb2`;
+
+USE `mydb2`;
+
+SHOW TABLES;
+
+CREATE TABLE `cust` (`id` INT PRIMARY KEY AUTO_INCREMENT, `name` VARCHAR(20), `tel` VARCHAR(20), `birthday` DATE);
+
+DESC `cust`;
+
+DELETE FROM cust;
+DELETE FROM cust WHERE name = 'Mary'
+DELETE FROM cust WHERE id = 3 
+
+UPDATE `iii`.`cust` SET `name`='Tony',`tel`='333' WHERE `id` = 17;
