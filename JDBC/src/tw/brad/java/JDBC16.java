@@ -9,7 +9,7 @@ import java.util.Properties;
 
 public class JDBC16 {
 	public static void main(String[] args) {
-		String account = "tony", passwd="654321", realname = "Brad Chao";
+		String account = "brad", passwd="654321", realname = "Brad Chao";
 		
 		Properties info = new Properties();
 		info.setProperty("user", "root");
