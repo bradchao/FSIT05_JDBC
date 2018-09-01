@@ -49,7 +49,7 @@ public class JDBC12 extends JFrame {
 		prop.setProperty("password", "root");
 		
 		String query = 
-				"SELECT name as `名稱`, feature as `特色`, place as `購買地址` FROM gifts";
+				"SELECT id, name as `名稱`, feature as `特色`, place as `購買地址` FROM gifts";
 		
 		try {
 			conn = DriverManager.getConnection(url,prop);
@@ -97,6 +97,27 @@ public class JDBC12 extends JFrame {
 				return "---";
 			}
 		}
+
+		@Override
+		public boolean isCellEditable(int row, int column) {
+			return fields[column].equals("id")?false:true;
+			//return true;
+		}
+
+		@Override
+		public void setValueAt(Object aValue, int row, int column) {
+			super.setValueAt(aValue, row, column);
+			try {
+				rs.absolute(row+1);
+				rs.updateString(fields[column], (String)aValue);
+				rs.updateRow();
+			}catch(Exception e) {
+				System.out.println(e);
+			}
+		}
+		
+		
+		
 	}
 	
 	public static void main(String[] args) {
